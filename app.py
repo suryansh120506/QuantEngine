@@ -7,6 +7,51 @@ import yfinance as yf
 from src.predictor import get_lstm_prediction 
 
 # --- 1. SETTINGS & PREMIUM TECH UI ---
+# --- 1. SETTINGS & MOBILE-RESPONSIVE UI ---
+st.set_page_config(page_title="Quantitative Finance Engine", layout="wide")
+
+st.markdown("""
+    <style>
+    .stApp {
+        background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=3840&q=80");
+        background-size: cover;
+    }
+
+    /* --- MOBILE RESPONSIVENESS FIX --- */
+    @media (max-width: 800px) {
+        /* Force Metrics to stack vertically on mobile */
+        [data-testid="column"] {
+            width: 100% !important;
+            flex: 1 1 100% !important;
+            padding-bottom: 20px;
+        }
+        /* Make the SVG Title smaller for mobile screens */
+        text { font-size: 22px !important; letter-spacing: 2px !important; }
+        
+        /* Increase padding for touch targets */
+        .stButton button { width: 100% !important; height: 50px; }
+    }
+
+    /* Premium Box Styling with 100% Opacity */
+    .stInfo, .stSuccess, .stWarning, [data-testid="stMetric"] {
+        background-color: rgb(5, 5, 5) !important; 
+        color: #00f2ff !important;
+        border: 2px solid #00f2ff !important;
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        opacity: 1.0 !important;
+        border-radius: 15px;
+        padding: 20px;
+    }
+    
+    [data-testid="stMetricValue"] { font-family: 'Courier New', monospace; font-size: 1.8rem !important; }
+    
+    [data-testid="stSidebar"] {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+        backdrop-filter: blur(20px);
+    }
+    .main { background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px); }
+    </style>
+    """, unsafe_allow_html=True)
 st.set_page_config(page_title="Quantitative Finance Engine", layout="wide")
 
 st.markdown("""
